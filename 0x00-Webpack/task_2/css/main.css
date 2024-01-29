@@ -1,14 +1,8 @@
 #logo {
   width: 200px;
   height: 200px;
-  background: url('../assets/holberton-logo.jpg') no-repeat;
-  background-size: cover;
-}
-
-#startButton {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  background: url('../assets/holberton-logo.jpg');
+  background-size: 200px 200px;
 }
 
 #count {
