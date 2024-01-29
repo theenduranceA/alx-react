@@ -1,5 +1,5 @@
-import $ from 'jquery';
-import _ from 'lodash';
+const $ = require('jquery');
+const _ = require('lodash');
 
 $('body').append('<p>Holberton Dashboard</p>');
 $('body').append('<p>Dashboard data for the students</p>');
