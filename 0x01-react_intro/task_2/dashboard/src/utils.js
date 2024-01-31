@@ -9,3 +9,7 @@ export function getFullYear() {
   
     return message;
   }
+
+  export function getLatestNotification() {
+    return '<strong>Urgent requirement</strong> - complete by EOD';
+  }
