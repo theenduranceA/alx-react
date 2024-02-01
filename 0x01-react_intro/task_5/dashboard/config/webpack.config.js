@@ -9,6 +9,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    hot: true,
     contentBase: path.join(__dirname, 'dist'),
     open: true,
     port: 8564,
