@@ -5,6 +5,9 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 import Notifications from '../Notifications/Notifications';
+import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+/* Utils */
 import { getLatestNotification } from '../utils/utils';
 /* Proptypes */
 import { bool } from 'prop-types';
@@ -42,6 +45,7 @@ class App extends Component {
   }
 
   render (){
+    const { isLoggedIn } = this.props;
     return (
       <>
         <Notifications listNotifications={listNotifications} />
@@ -49,7 +53,17 @@ class App extends Component {
           {/* Header */}
           <Header />
           {/* Body */}
-          {this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+          { isLoggedIn ?
+            <BodySectionWithMarginBottom title='Course list'>
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom> :
+            <BodySectionWithMarginBottom title='Log in to continue'>
+              <Login />
+            </BodySectionWithMarginBottom>
+            }
+            <BodySection title='News from the School'>
+              <p>So, here i am testing out my frontend skills. Feels good, ABSOLUTELY!!!</p>
+            </BodySection>
           {/* Footer */}
           <Footer />
         </div>
