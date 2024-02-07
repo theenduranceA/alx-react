@@ -26,7 +26,7 @@ const listNotifications = [
 class App extends Component {
   render (){
     return (
-      <>
+      <Fragment>
         <Notifications listNotifications={listNotifications} />
         <div className="App">
           {/* Header */}
@@ -36,7 +36,7 @@ class App extends Component {
           {/* Footer */}
           <Footer />
         </div>
-      </>
+      </Fragment>
     );
   }
 }
