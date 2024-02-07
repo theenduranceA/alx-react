@@ -42,7 +42,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  isLoggedIn: bool,
+  isLoggedIn: PropTypes.bool,
 };
 
 App.defaultProps = {
