@@ -31,8 +31,10 @@ class App extends Component {
         <div className="App">
           {/* Header */}
           <Header />
+          <div className="App-body">
           {/* Body */}
           {this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+          </div>
           {/* Footer */}
           <Footer />
         </div>
