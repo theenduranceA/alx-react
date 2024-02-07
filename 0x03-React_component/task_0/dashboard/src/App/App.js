@@ -7,7 +7,7 @@ import CourseList from '../CourseList/CourseList';
 import Notifications from '../Notifications/Notifications';
 import { getLatestNotification } from '../utils/utils';
 /* Proptypes */
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 /* Styles */
 import './App.css';
 
