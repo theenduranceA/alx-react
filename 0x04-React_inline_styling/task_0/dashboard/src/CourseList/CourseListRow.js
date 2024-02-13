@@ -27,7 +27,7 @@ function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
     }
     else cell = (<th colSpan='2'>{textFirstCell}</th>);
   }
-  return(<tr style={ isHeader ? style.headerStyle : style.bodyStyle }>{cell}</tr>);
+  return(<tr style={ isHeader ? style.headerStyle : style.rowStyle }>{cell}</tr>);
 }
 
 CourseListRow.propTypes = {
