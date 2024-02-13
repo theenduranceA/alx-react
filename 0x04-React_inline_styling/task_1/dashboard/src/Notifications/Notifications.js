@@ -67,12 +67,12 @@ Notifications.defaultProps = {
 };
 
 const style = StyleSheet.create({
-  root {
-    --color-blue: #0000ff;
-    --color-red: #ff0000;
+  root: {
+    colorBlue: "#0000ff",
+    colorRed: "ff0000",
   },
   
-  otifications: {
+  Notifications: {
     border: "2px dashed #E0434C",
     padding: "1rem",
     marginBottom: "1rem",

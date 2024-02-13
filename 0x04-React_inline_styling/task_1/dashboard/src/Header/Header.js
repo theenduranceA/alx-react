@@ -29,6 +29,7 @@ const style = StyleSheet.create({
     color: "#E0434C",
     fontWeight: "900",
     fontSize: "2rem",
-  }
+  },
 });
+
 export default Header;

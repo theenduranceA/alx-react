@@ -4,6 +4,14 @@ import { expect as expectChai } from 'chai';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom'
 import BodySection from './BodySection'
 
+beforeAll(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+
+afterAll(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
+
 describe('Test BodySectionWithMarginBottom.js', () => {
   it('Render without crashing', (done) => {
     expectChai(shallow(<BodySectionWithMarginBottom title='test title' />).exists());

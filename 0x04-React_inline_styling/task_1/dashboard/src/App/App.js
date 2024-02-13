@@ -9,7 +9,6 @@ import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBot
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { StyleSheet, css } from 'aphrodite';
 
 const listCourses = [
   { id: 1, name: 'ES6', credit: 60 },
