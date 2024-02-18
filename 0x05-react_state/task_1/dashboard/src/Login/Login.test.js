@@ -1,35 +1,48 @@
 import React from 'react';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import App from '../App/App';
 import Login from './Login';
-import { mount } from 'enzyme';
-import { StyleSheetTestUtils } from 'aphrodite';
+import { StyleSheetTestUtils } from "aphrodite";
 
-describe("testing the <Login /> component", () => {
-  let wrapper;
-
-  beforeEach(() => {
+describe('Test Login.js', () => {
+  beforeAll(() => {
     StyleSheetTestUtils.suppressStyleInjection();
-    wrapper = mount(<Login />);
   });
 
-  it("Login component renders without crashing", () => {
-    expect(wrapper).toBeDefined();
+  afterAll(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
   });
 
-  it("Login component renders 3 input tags", () => {
-    expect(wrapper.find("input")).toHaveLength(3);
+  it('Login without crashing', (done) => {
+    expect(shallow(<Login />).exists());
+    done();
   });
 
-  it("Login component renders 2 label tags", () => {
-    expect(wrapper.find("label")).toHaveLength(2);
+  it('div with the class App-body', (done) => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.contains(<body className='App-body' />))
+    done();
   });
 
-  it("verify that the submit button is disabled by default", () => {
-    expect(wrapper.find("input[type='submit']").props().disabled).toEqual(true);
+  it('renders 2 inputs and 2 labels', (done) => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.find('input')).to.have.lengthOf(2);
+    expect(wrapper.find('label')).to.have.lengthOf(2);
+    done();
   });
 
-  it("verify that after changing the value of the two inputs, the button is enabled", () => {
-    wrapper.find("#email").simulate('change', {target: {value: 't'}});
-    wrapper.find("#password").simulate('change', {target: {value: 't'}});
-    expect(wrapper.find("input[type='submit']").props().disabled).toEqual(false);
+  it('verify that the submit button is disabled by default', (done) => {
+    const wrapper = shallow(<Login />);
+    expect(wrapper.state().enableSubmit).to.equal(false);
+    done();
+  });
+
+  it('verify that after changing the value of the two inputs, the button is enabled', (done) => {
+    const wrapper = shallow(<Login />);
+    wrapper.find('input#email').simulate('change', { target: { value: 'test@test.com' } });
+    wrapper.find('input#password').simulate('change', { target: { value: 'test' } });
+    expect(wrapper.state().enableSubmit).to.equal(true);
+    done();
   });
 });
