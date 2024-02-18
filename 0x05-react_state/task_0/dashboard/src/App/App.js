@@ -23,97 +23,97 @@ const listNotifications = [
 ];
 
 class App extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { displayDrawer: false };
-      this.handleClick = this.handleClick.bind(this);
-      this.handleHideDrawer = this.handleHideDrawer.bind(this);
-      this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = { displayDrawer: false };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+  }
   
-    componentDidMount() {
-      document.addEventListener("keydown", this.handleClick);
-    }
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleClick);
+  }
   
-    componentWillUnmount() {
-      document.removeEventListener("keydown", this.handleClick);
-    }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleClick);
+  }
   
-    handleClick(event) {
-      if (event.keyCode === 72 && event.ctrlKey) {
-        alert('Logging you out');
-        this.props.logOut();
-      }
+  handleClick(event) {
+    if (event.keyCode === 72 && event.ctrlKey) {
+      alert('Logging you out');
+      this.props.logOut();
     }
+  }
   
-    handleDisplayDrawer() {
-      this.setState({ displayDrawer: true });
-    }
+  handleDisplayDrawer() {
+    this.setState({ displayDrawer: true });
+  }
   
-    handleHideDrawer() {
-      this.setState({ displayDrawer: false });
-    }
+  handleHideDrawer() {
+    this.setState({ displayDrawer: false });
+  }
 
-    render() {
-        const { isLoggedIn } = this.props;
-        const { displayDrawer } = this.state;
-        return (
-          <React.Fragment>
-            <Notifications
-              listNotifications={listNotifications}
-              displayDrawer={displayDrawer}
-              handleDisplayDrawer={this.handleDisplayDrawer}
-              handleHideDrawer={this.handleHideDrawer}
-            />
-            <div className='App'>
-              <Header />
-              <div className={css(style.appBody)}>
-                {isLoggedIn ? 
-                  <BodySectionWithMarginBottom title='Course list'>
-                    <CourseList listCourses={listCourses} />
-                  </BodySectionWithMarginBottom> :
-                  <BodySectionWithMarginBottom title='Log in to continue'>
-                    <Login />
-                  </BodySectionWithMarginBottom>
-                }
-                <BodySection title='News from the School'>
-                  <p>So, here i am testing out my frontend skills. Feels good, ABSOLUTELY!!!</p>
-                </BodySection>
-              </div>
-              <div className={css(style.footer)}>
-                <Footer></Footer>
-              </div>
-            </div>
-          </React.Fragment>
+  render() {
+    const { isLoggedIn } = this.props;
+    const { displayDrawer } = this.state;
+    return (
+      <React.Fragment>
+        <Notifications
+          listNotifications={listNotifications}
+          displayDrawer={displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+        />
+        <div className='App'>
+          <Header />
+          <div className={css(style.appBody)}>
+            {isLoggedIn ? 
+              <BodySectionWithMarginBottom title='Course list'>
+                <CourseList listCourses={listCourses} />
+              </BodySectionWithMarginBottom> :
+              <BodySectionWithMarginBottom title='Log in to continue'>
+                <Login />
+              </BodySectionWithMarginBottom>
+            }
+            <BodySection title='News from the School'>
+              <p>So, here i am testing out my frontend skills. Feels good, ABSOLUTELY!!!</p>
+            </BodySection>
+          </div>
+          <div className={css(style.footer)}>
+            <Footer></Footer>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }
 
 App.propTypes = {
-    isLoggedIn: PropTypes.bool,
-    logOut: PropTypes.func
-  };
-  
-  App.defaultProps = {
-    isLoggedIn: false,
-    logOut: () => void(0)
-  };
-  
-  const style = StyleSheet.create({
-    appBody: {
-      backgroundColor: '#fff',
-      padding: '4rem',
-      minHeight: '26rem',
-    },
-    appFooter: {
-      backgroundColor: '#fff',
-      textAlign: 'center',
-      width: '100%',
-      bottom: '0px',
-      borderTop: '3px solid #e1354b',
-      fontStyle: 'italic',
-      padding: '1rem 0'
-    }
-  });
-  
-  export default App;
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  logOut: () => void(0)
+};
+
+const style = StyleSheet.create({
+  appBody: {
+    backgroundColor: '#fff',
+    padding: '4rem',
+    minHeight: '26rem',
+  },
+  appFooter: {
+    backgroundColor: '#fff',
+    textAlign: 'center',
+    width: '100%',
+    bottom: '0px',
+    borderTop: '3px solid #e1354b',
+    fontStyle: 'italic',
+    padding: '1rem 0'
+  }
+});
+
+export default App;
