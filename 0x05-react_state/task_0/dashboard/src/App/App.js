@@ -77,14 +77,14 @@ class App extends React.Component {
                   </BodySectionWithMarginBottom>
                 }
                 <BodySection title='News from the School'>
-                <p>So, here i am testing out my frontend skills. Feels good, ABSOLUTELY!!!</p>
-            </BodySection>
-          </div>
-          <div className={css(style.footer)}>
-            <Footer></Footer>
-          </div>
-        </div>
-      </React.Fragment>
+                  <p>So, here i am testing out my frontend skills. Feels good, ABSOLUTELY!!!</p>
+                </BodySection>
+              </div>
+              <div className={css(style.footer)}>
+                <Footer></Footer>
+              </div>
+            </div>
+          </React.Fragment>
     );
   }
 }
