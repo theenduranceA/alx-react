@@ -8,7 +8,7 @@ const notification = new schema.Entity("notification", {
   context: message,
 });
 
-const normalized = normalize(notificationData, [notification]);
+const normalized = normalize(notifications, [notification]);
 
 export default function getAllNotificationsByUser(userId) {
   return notifications.filter((notification) => notification.author.id === userId).map((notification) => notification.context);
